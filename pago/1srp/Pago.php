@@ -2,9 +2,10 @@
 
 include 'CalculadoraDescuento.php';
 
-/**Ahora este otro respeta single responsability referido a los descuentos
-Todavía le faltaría simple responsabilidad en cuanto a la impresión. Pero eso lo arreglamos en un rato mas
-Esta es la etapa 2:**/ 
+/**
+ * -Ahora este otro respeta single responsability referido a los descuentos
+   -Todavía le faltaría simple responsabilidad en cuanto a la impresión. Pero eso lo arreglamos en un rato mas
+   -Esta es la etapa 2:**/ 
 
 class Pago {
     public $monto;

@@ -1,5 +1,26 @@
-<?php
-include 'DescuentoStrategy.php';
+<?php 
+
+interface DescuentoStrategy {
+    public function calcularDescuento($monto);
+}
+
+class DescuentoEfectivo implements DescuentoStrategy {
+    public function calcularDescuento($monto) {
+        return $monto * 0.10;
+    }
+}
+
+class DescuentoDebito implements DescuentoStrategy {
+    public function calcularDescuento($monto) {
+        return $monto * 0.05;
+    }
+}
+
+class DescuentoCredito implements DescuentoStrategy {
+    public function calcularDescuento($monto) {
+        return 0; // No hay descuento para tarjetas de crédito
+    }
+}
 
 class Pago {
     public $monto;
@@ -32,3 +53,7 @@ class Pago {
         echo "$this->persona paga con $this->metodoPago, un total de: $montoConDescuento ";
     }
 }
+
+// Ejemplo de uso
+$pago = new Pago(100, "Juan", "efectivo");
+$pago->procesarPago();
